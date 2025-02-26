@@ -1,0 +1,156 @@
+.sidebar {
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-secondary);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    background-color: var(--bg-primary);
+    height: 5rem;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.header img {
+    padding: 1.25rem 1rem;
+    height: 42px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.searchBox {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    position: sticky;
+    top: 5rem;
+    background-color: var(--bg-primary);
+    z-index: 1;
+}
+
+.searchBox input {
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    background-color: var(--bg-secondary);
+    outline: none;
+    border: none;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+}
+
+.searchBox input::placeholder {
+    color: var(--text-secondary);
+}
+
+.conversations {
+    margin-top: 0.5rem;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-secondary) transparent;
+}
+
+.conversation {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: var(--bg-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profileResult {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--action);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-white);
+    margin-right: 1rem;
+}
+
+.detailsResult {
+    flex: 1;
+}
+
+.primaryResult {
+    display: flex;
+    flex-direction: column;
+}
+
+.nameResult {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.emailResult {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.noResults {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        border-right: none;
+    }
+
+    .searchBox {
+        top: 4rem;
+        padding: 0.5rem;
+    }
+
+    .searchBox input {
+        font-size: 0.9rem;
+    }
+
+    .nameResult {
+        font-size: 0.9rem;
+    }
+
+    .emailResult {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header img {
+        height: 36px;
+        padding: 1rem;
+    }
+
+    .conversation {
+        margin-bottom: 0.25rem;
+    }
+
+    .profileResult {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+}

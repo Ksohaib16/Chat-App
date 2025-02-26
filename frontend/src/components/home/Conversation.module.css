@@ -1,0 +1,126 @@
+.conversation {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-primary);
+    height: 72px;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.conversation:hover {
+    background-color: var(--bg-secondary);
+}
+
+.profile {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--action);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-white);
+    margin-right: 1rem;
+    position: relative; /* Required for positioning the dot */
+}
+
+.profile.online::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    border: 2px solid var(--bg-primary);
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    z-index: 1;
+}
+
+.details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.primary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.time {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.secondary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.unread {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--bg-notification);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--text-white);
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .conversation {
+        height: 64px;
+        padding: 0.5rem;
+    }
+
+    .profile {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .name {
+        font-size: 0.9rem;
+    }
+
+    .time {
+        font-size: 0.75rem;
+    }
+
+    .message {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .conversation {
+        height: 56px;
+    }
+
+    .profile {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;
+    }
+}

@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  number        String         @unique
+  email        String         @unique
+  status        UserStatus     @default(OFFLINE)
+  lastSeen      DateTime?
+  conversations Conversation[]
+  unreadCounts  UnreadCount[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  Message       Message[]
+}
+
+model Conversation {
+  id                 String        @id @default(cuid())
+  participants       User[]
+  messages           Message[]
+  unreadCounts       UnreadCount[]
+  lastMessageContent String
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+}
+
+model Message {
+  id             String        @id @default(cuid())
+  content        String
+  senderId       String
+  sender         User          @relation(fields: [senderId], references: [id])
+  conversationId String
+  conversation   Conversation  @relation(fields: [conversationId], references: [id])
+  status         MessageStatus @default(SENT)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model UnreadCount {
+  id             String       @id @default(cuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+  count          Int          @default(0)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([userId, conversationId])
+}
+
+enum UserStatus {
+  ONLINE
+  IDLE
+  OFFLINE
+}
+
+enum MessageStatus {
+  SENT
+  DELIVERED
+  READ
+}

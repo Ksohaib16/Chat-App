@@ -1,0 +1,13 @@
+.customToastContainer {
+    background-color: #212121 !important;
+    color: var(--primary) !important;
+    border-radius: 8px;
+}
+
+.customToastBody {
+    color: var(--primary) !important;
+}
+
+.customProgressBar {
+    background: var(--primary) !important;
+}

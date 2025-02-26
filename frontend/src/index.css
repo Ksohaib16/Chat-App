@@ -1,0 +1,22 @@
+:root {
+    --bg: rgba(139, 171, 216, 1);
+    --bg-primary: rgba(255, 255, 255, 1);
+    --bg-secondary: rgba(245, 245, 245, 1);
+    --action: rgba(110, 128, 164, 1);
+    --bg-status: rgba(21, 207, 116, 1);
+    --bg-notification: rgba(55, 88, 249, 1);
+    --border-primary: rgba(223, 228, 234, 1);
+    --border-secondary: rgba(217, 220, 224, 1);
+    --text-primary: rgba(1, 22, 39, 1);
+    --text-white: rgba(255, 255, 255, 1);
+    --text-secondary: rgba(112, 121, 145, 1);
+    --text-input: rgba(156, 163, 175, 1);
+    --msgOwner: rgba(222, 233, 255, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    padding: 0;
+}
